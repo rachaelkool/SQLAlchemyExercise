@@ -8,25 +8,42 @@
 
    
     <div class="col-sm-2 col-6">
-      <img src="{{ user.image_url }}"
+      <img src="{{user.image_url}}"
            class="img-fluid">
     </div>
 
-
-        <div class="col-sm-10 col-12">
-        <h1>{{user.first_name}} {{user.last_name}}</h1>
+    <div class="col-sm-10 col-12">
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
   
       <form>
         <button class="btn btn-success btn-sm"
                 formaction="/users/{{ user.id }}/edit"
-                formmethod="GET">Edit
+                formmethod="GET">Edit User Info
         </button>
         <button class="btn btn-danger btn-sm"
-                formaction="/users/{{ user.id }}/delete"
-                formmethod="POST">Delete
+                formaction="/users/{{user.id}}/delete"
+                formmethod="POST">Delete User
+        </button>
+        <button class="btn btn-primary btn-sm"
+                formaction="/users/{{user.id}}/posts/new">Make a New Post
         </button>
       </form>
-      </div>
+      <h2 class="mt-4">Posts</h2>
+
+      <ul>
+      {% for post in user.posts %}
+      <li>
+        <a href="/posts/{{post.id}}">{{post.title}}</a>
+        <small>{{post.friendly_date}}</small>
+      </li>
+      {% endfor %}
+      </ul>
+    </div>
+  <a href="/">
+    <button class="btn btn-outline-secondary">Return to Users List</button>
+  </a>
+    
+
   
   
     </div>

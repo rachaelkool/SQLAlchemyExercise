@@ -52,7 +52,7 @@ class PetViewsTestCase(TestCase):
             self.assertIn("Nelson", html)
 
 
-# need to make last test work
+# need to make test work
     def test_edit(self):
         with app.test_client() as client:
             resp = client.get("/users/<int:user_id>/edit")
@@ -60,6 +60,14 @@ class PetViewsTestCase(TestCase):
 
             self.assertEqual(resp.status_code, 200)
             self.assertIn('<h2>Edit a User</h2>', html)
+
+    def test_user_form(self):
+        with app.test_client() as client:
+            resp = client.get("/posts/<int:post_id>")
+            html = resp.get_data(as_text=True)
+
+            self.assertEqual(resp.status_code, 200)
+            self.assertIn('</i>', html)
 
 
        

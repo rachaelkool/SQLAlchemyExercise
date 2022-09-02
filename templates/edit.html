@@ -6,13 +6,13 @@
 <h2>Edit a User</h2>
 <form action="" method="POST">
     <div class="form-group">
-        <input type="text" class="form-control" name="first_name" placeholder="Update First Name">
+        <input type="text" class="form-control" name="first_name" placeholder="Update First Name" value="{{user.first_name}}">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" name="last_name" placeholder="Update Last Name">
+        <input type="text" class="form-control" name="last_name" placeholder="Update Last Name"  value="{{user.last_name}}">
     </div>
     <div class="form-group">
-        <input type="text" class="form-control" name="image_url" placeholder="New user image">
+        <input type="text" class="form-control" name="image_url" placeholder="New user image" value="{{user.image_url}}">
     </div>
     
     <button type="submit" class="btn btn-primary">Save</button>

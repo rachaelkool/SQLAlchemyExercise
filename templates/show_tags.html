@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Tag Details{% endblock %}
+
+{% block content %}
+
+<h1>{{tag.name}}</h1>
+  
+<form>
+    <button class="btn btn-success btn-sm"
+            formaction="/tags/{{tag.id}}/edit"
+            formmethod="GET">Edit Tag
+    </button>
+    <button class="btn btn-danger btn-sm"
+            formaction="/tags/{{tag.id}}/delete"
+            formmethod="POST">Delete Tag
+    </button>
+    <button class="btn btn-danger btn-sm"
+            formaction="/tags">Cancel
+    </button>
+</form>
+
+   
+
+{% endblock %}

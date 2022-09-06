@@ -122,8 +122,9 @@ def posts_delete(post_id):
 
 @app.route('/tags')
 def tags_info():
+    user_id = request.args.get('user_id')
     tags = Tag.query.all()
-    return render_template('tags_info.html', tags=tags)
+    return render_template('tags_info.html', tags=tags, user_id= user_id)
 
 @app.route('/tags/<int:tag_id>')
 def show_tag(tag_id):
